@@ -3,12 +3,12 @@ package graph;
 import java.util.Stack;
 
 public class Graph {
-    private Vertex V[];
+    private final Vertex[] V;
     private int vMax;
-    private int[][] adjMat;
+    private final int[][] adjMat;
     public int nV;
-    private Stack<Vertex> s;
-    private Stack<Vertex> topoStack;
+    private final Stack<Vertex> s;
+    private final Stack<Vertex> topoStack;
 
 
     public Graph(int vMax) {
@@ -46,13 +46,13 @@ public class Graph {
     public Stack<Vertex> dfs(Vertex start) {
         s.push(start);
         start.isVisited = true;
-        System.out.print(start);
+        //System.out.print(start);
 
         while(!s.isEmpty()) {
             Vertex vet = unVisitedAdjVet(s.peek());
                 if (vet != null) {
                     vet.isVisited = true;
-                    System.out.print(vet);
+                   // System.out.print(vet);
                     s.push(vet);
                 } else {
                    topoStack.push( s.pop());

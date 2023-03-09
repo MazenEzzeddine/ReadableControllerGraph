@@ -22,14 +22,10 @@ public class Main {
         g.addVertix(1, "testtopic1", "testgroup1");
         g.addVertix(2, "testtopic2", "testgroup2");
         g.addVertix(3, "testtopic3", "testgroup3");
-       /* g.addVertix(4, "tfour", "cfour");
-        g.addVertix(5, "tfive", "cfive");
-*/
 
         g.addEdge(1, 2);
         g.addEdge(2, 3);
-        g.addEdge(1, 4);
-        g.addEdge(4, 5);
+
 
         Stack<Vertex> ts = g.dfs(g.getVertex(1)); // 1 2 3 4 5
         List<Vertex> topoOrder = new ArrayList<>();
@@ -38,9 +34,7 @@ public class Main {
             topoOrder.add(ts.pop());
         }
         System.out.println(topoOrder);
-
        initialize(topoOrder);
-
     }
 
 
@@ -48,7 +42,6 @@ public class Main {
 
      private static void initialize(List<Vertex> topoOrder) throws InterruptedException, ExecutionException {
          //System.out.println(topoOrder);
-
          for (int i = 0; i <= 4; i++) {
             Scale1.topicpartitions1.add(new Partition(i, 0, 0));
             Scale2.topicpartitions2.add(new Partition(i, 0, 0));
